@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 2</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <form>
+      <input type="text" />
+      <button type="submit">Search</button>
+    </form>
+    <div id="results"></div>
+
+    <script type="template/handlebars" id="loading-template">
+      <div class="loader">Loading...</div>
+    </script>
+
+    <script type="template/handlebars" id="jokes-template">
+      {{#if results.length}}
+        <p>Total Jokes: {{total_jokes}}</p>
+
+        <ul>
+          {{#each results}}
+            <li>{{joke}}</li>
+          {{/each}}
+        </ul>
+
+        <p>Page: {{current_page}} / {{total_pages}}</p>
+
+        <button type="button" id="previous-page-button">Previous Page</button>
+        <button type="button" id="next-page-button">Next Page</button>
+      {{else}}
+        <p>No results found.</p>
+      {{/if}}
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="handlebars.min-v4.7.7.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
